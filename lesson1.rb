@@ -10,3 +10,4 @@ puts (name)
 happines = 0.98 # float .to_f
 person_has_car = true  #booling true/false
 none = nil #ничего
+#branch
