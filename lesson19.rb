@@ -6,12 +6,19 @@ class Car  # название класса всегда с большой бук
         @model = model
         @color = color
     end
+
+    def x
+        if @speed > 200
+            return true
+        end
+    return false
+    end
 end
 
-bmw = Car.new(230, "X6", "Black")
+bmw = Car.new(199, "X6", "Black")
 
 audi = Car.new(250, "Q7", "White")
 
 
-puts bmw.speed
-puts audi.speed
+puts bmw.x
+puts audi.x
