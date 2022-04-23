@@ -9,8 +9,8 @@ end
 class Cars < Transport  # "<" означает унаследовать, т.е. class Cars унаследует все от класса Transport
     attr_accessor :isMechanic
 
-    def sayBip
-        puts "Bip Bip 2" 
+    def saySome
+        puts @wheels 
     end
 end
 
@@ -21,6 +21,8 @@ end
 bmw = Cars.new()
 audi = Cars.new()
 bmw.color = "Red"
+audi.wheels = 4
 
 puts bmw.color
 puts audi.sayBip
+puts audi.saySome
