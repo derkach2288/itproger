@@ -13,7 +13,7 @@ for item in names do
     if item == "Элис"
         puts "Элис? Кто такая Элис?"
         sleep 1
-        break
+        break                            # break - команда для досрочного выхода из цикла
     end
 end
 
