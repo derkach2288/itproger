@@ -5,7 +5,7 @@ puts "Что вы вибираете?
 
 user = gets.chomp.to_i
 
-while user > 2
+while user > 2 do
     puts "Нужно ввести значение 0, 1 или 2. Попробуйте еще раз"
     user = gets.chomp.to_i
 end
