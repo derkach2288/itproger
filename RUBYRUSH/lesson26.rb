@@ -1,16 +1,10 @@
-
-
-
 def first_elements(array, number)
 
     result_array = []
-
     counter = 0
 
-    while counter < number
-        if array.size <= counter
-            break
-        end
+    while result_array.length < number
+
         result_array << array[counter]
         counter += 1
     end
