@@ -24,9 +24,7 @@ def get_user_input
     while letter == "" do                  # В цикле будем опрашивать юзера, пока он не введет что-нибудь
         letter = STDIN.gets.chomp          # Спрашиваем у пользователя букву в консоли
     end
-    if letter == "ё"
-        letter = "е"
-    end
+    
     return letter                          # Возвращаем полученную от пользователя букву
 end
 
@@ -50,10 +48,32 @@ def check_result(user_input, letters, good_letters, bad_letters)
         return 0     # вернем 0, так как ничего не изменилось, игра продолжится.
     end
 
-    if letters.include? user_input  # Если в слове есть буква запишем её в массив «хороших» букв
+
+    if letters.include?(user_input) || # Если в слове есть буква запишем её в массив «хороших» букв
+        (user_input == 'е' && letters.include?('ё')) ||
+        (user_input == 'ё' && letters.include?('е')) ||
+        (user_input == 'и' && letters.include?('й')) ||
+        (user_input == 'й' && letters.include?('и'))
+
         good_letters << user_input  # в массив угаданных букв попадают только уникальные буквы в одном экземпляре. 
 
-        if letters.uniq.size == good_letters.size    # .uniq оставляет в массиве только уникальные буквы, а повторения удаляет.
+        if user_input == 'е'
+            good_letters << 'ё'
+          end
+      
+          if user_input == 'ё'
+            good_letters << 'е'
+          end
+      
+          if user_input == 'и'
+            good_letters << 'й'
+          end
+      
+          if user_input == 'й'
+            good_letters << 'и'
+          end
+
+        if (letters - good_letters).empty?    # .uniq оставляет в массиве только уникальные буквы, а повторения удаляет.
                       # Если длина массива с уникальными буквами загаданного слово = длине массива отгаданных букв - слово угадано
             return 1  # Если слово угадано - возвращаем 1
         else 
@@ -103,7 +123,7 @@ def print_status(letters, good_letters, bad_letters, errors)
     if errors >= 7
         puts "Вы проиграли :("
     else
-        if letters.uniq.size == good_letters.size
+        if (letters - good_letters).empty?
             puts "Поздравляем! Вы вииграли! \n\n"
         else
             puts "У вас осталось попыток: " + (7 - errors).to_s
