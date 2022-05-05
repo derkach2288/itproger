@@ -20,9 +20,12 @@ end
 
 def get_user_input
     letter = ""
-
+    
     while letter == "" do                  # В цикле будем опрашивать юзера, пока он не введет что-нибудь
         letter = STDIN.gets.chomp          # Спрашиваем у пользователя букву в консоли
+    end
+    if letter == "ё"
+        letter = "е"
     end
     return letter                          # Возвращаем полученную от пользователя букву
 end
