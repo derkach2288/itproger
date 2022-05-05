@@ -71,8 +71,15 @@ end
 # вернуть строку "__ о __ о к о".
 
 def get_word_for_print(letters, good_letters)
-    result = ""
-    
+    res = ""
+    for item in letters do
+        if good_letters.include? item 
+            res += item + " "
+        else res += "__ "
+        end
+    end
+
+    return res
 
 end
 
@@ -87,4 +94,29 @@ end
 def print_status(letters, good_letters, bad_letters, errors)
     puts "\nСлово: " + get_word_for_print(letters, good_letters)
 
+    puts "Ошибки (#{errors}): #{bad_letters.join(", ")}"     # .join выводит элементы массива в строчку без квадратных скобок 
+                                                         # и между элементами ставит то, что указываем в скобках
+
+    if errors >= 7
+        puts "Вы проиграли :("
+    else
+        if letters.uniq.size == good_letters.size
+            puts "Поздравляем! Вы вииграли! \n\n"
+        else
+            puts "У вас осталось попыток: " + (7 - errors).to_s
+        end
+    end
+
+
+end
+
+
+# Метод cls, очищающий экран, вызывает системную команду. В Mac OS/Linux —
+# clear, в Windows — cls. Оператор || тут необходим на случай, если первый вызов
+# пройдет неудачно (например, такой команды нет, как, например и, команды 'cls'
+# на Linux). Если первый system вернет false будет вызвана другая команда.
+def cls
+    
+    system "clear" or system "cls"
+    
 end
