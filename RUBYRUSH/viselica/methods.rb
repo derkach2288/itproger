@@ -50,10 +50,10 @@ def check_result(user_input, letters, good_letters, bad_letters)
 
 
     if letters.include?(user_input) || # Если в слове есть буква запишем её в массив «хороших» букв
-        (user_input == 'е' && letters.include?('ё')) ||
-        (user_input == 'ё' && letters.include?('е')) ||
-        (user_input == 'и' && letters.include?('й')) ||
-        (user_input == 'й' && letters.include?('и'))
+        (user_input == 'е' && letters.include?('ё')) ||    # Ввели букву е, а в слове есть буква ё
+        (user_input == 'ё' && letters.include?('е')) ||    # Ввели букву ё, а в слове есть буква е
+        (user_input == 'и' && letters.include?('й')) ||    # Ввели букву и, а в слове есть буква й
+        (user_input == 'й' && letters.include?('и'))       # Ввели букву й, а в слове есть буква и
 
         good_letters << user_input  # в массив угаданных букв попадают только уникальные буквы в одном экземпляре. 
 
@@ -73,8 +73,8 @@ def check_result(user_input, letters, good_letters, bad_letters)
             good_letters << 'и'
           end
 
-        if (letters - good_letters).empty?    # .uniq оставляет в массиве только уникальные буквы, а повторения удаляет.
-                      # Если длина массива с уникальными буквами загаданного слово = длине массива отгаданных букв - слово угадано
+        if (letters - good_letters).empty?    # Проверить массив на «пустоту» (что в нем нет элементов), можно с помощью
+                      # метода .empty? Если true - слово угадано.
             return 1  # Если слово угадано - возвращаем 1
         else 
             return 0   # Иначе, игра продолжается. Мы отгадали букву, но не слово.
