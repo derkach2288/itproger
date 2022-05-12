@@ -28,10 +28,12 @@ send_to = STDIN.gets.chomp
 # сюрпризов при использовании русских букв.
 puts 'Что написать в письме?'
 body = STDIN.gets.encode('UTF-8').chomp
+puts 'Какая тема?'
+subject = STDIN.gets.encode('UTF-8').chomp
 
 # Отправляем письмо, используя класс Pony из библиотеки pony
 Pony.mail(
-  subject: 'Привет из программы на руби!', # тема письма
+  subject: subject, # тема письма
   body: body, # текст письма, его тело
   to: send_to, # кому отправить письмо
   from: my_mail, # от кого письмо (наш обратный адрес)
