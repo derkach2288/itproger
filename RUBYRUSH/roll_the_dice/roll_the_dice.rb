@@ -8,8 +8,13 @@ end
 puts "Сколько кубиков кинуть?"
 
 number = gets.to_i
+sum = 0
 
 number.times do 
 show_rolling_die
-puts rand(1..6)
+die = rand(1..6)
+puts die
+sum += die
 end
+
+puts "Сумма кубиков #{sum}"
