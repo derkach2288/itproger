@@ -8,7 +8,7 @@
 
 list1 = {
     bread: 2,
-    butter: 3,ы
+    butter: 3,
     salt: 5,
     sugar: 4
 }
@@ -17,9 +17,12 @@ list2 = {
     biscuit: 2,
     coffee: 6,
     candies: 7,
-    chocolate: 2
+    chocolate: 2,
+    sugar: 5
 }
 
 all = list1.merge(list2)
+puts all
 
+all = list1.merge(list2){ |key, x1, x2| x1+x2 }
 puts all
