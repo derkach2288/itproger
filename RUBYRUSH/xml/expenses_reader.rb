@@ -61,7 +61,7 @@ amount_by_day.keys.sort.each do |key|
   end                                                            
 
 # Выводим заголовок для первого месяца
-puts "------[ #{current_month}, всего потрачено: #{sum_by_month[current_month]} р. ]--------"
+puts "------[ #{current_month}, всего потрачено: #{sum_by_month[current_month]} грн. ]--------"
 
 
 
@@ -73,10 +73,10 @@ amount_by_day.keys.sort.each do |key|   # Цикл по всем дням
       current_month = key.strftime('%B %Y')   # То значит мы перешли на новый месяц и теперь он станет текущим
   
      # Выводим заголовок для нового текущего месяца
-      puts "------[ #{current_month}, всего потрачено: #{sum_by_month[current_month]} р. ]--------"
+      puts "------[ #{current_month}, всего потрачено: #{sum_by_month[current_month]} грн. ]--------"
     end
   
    
-    puts "\t#{key.day}: #{amount_by_day[key]} р."    # Выводим расходы за конкретный день
+    puts "\t#{key.day}: #{amount_by_day[key]} грн."    # Выводим расходы за конкретный день
   end
   
