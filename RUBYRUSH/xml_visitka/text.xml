@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<business_card>
+    <first_name>Александр</first_name>
+    <second_name>Николаевич</second_name>
+    <last_name>Деркач</last_name>
+    <phone>+380938389750</phone>
+    <email>derkach2288@gmail.com</email>
+    <skills>Программист на Ruby</skills>
+  </business_card>
