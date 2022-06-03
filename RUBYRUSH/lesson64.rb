@@ -43,6 +43,3 @@ puts " Фильм Король стоит #{king.price} грн, в наличи�
 puts
 leon = Movie.new(price: 300, amount: "3 шт", name: "Леон")
 puts " Фильм #{leon.name} стоит #{leon.price} грн, в наличии #{leon.amount}"
-
-
-
